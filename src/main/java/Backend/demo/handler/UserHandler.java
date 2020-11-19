@@ -1,6 +1,5 @@
 package Backend.demo.handler;
 
-/*
 import Backend.demo.bo.User;
 
 import javax.servlet.http.HttpSession;
@@ -8,10 +7,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 public class UserHandler {
+
     public static String login(String user, String pass) {
         if(User.login(user, pass)){
-            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-            session.setAttribute("currentUser", user);
+            //HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            //session.setAttribute("currentUser", user);
             return "Index";
         }
         return "login";
@@ -30,4 +30,3 @@ public class UserHandler {
         return names;
     }
 }
-*/

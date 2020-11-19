@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LogController {
-    /**
-     * Testcase
-     * @return
-     */
-    @RequestMapping("/get")
+    @RequestMapping("/getOtherLogs")
+    public ResponseEntity<List<Log>> getOtherLogs()
+    {
+        List<Log> otherLogs = LogHandler.getOtherLogs("ernst");
+        return ResponseEntity.ok(otherLogs);
+    }
+    @RequestMapping("/getLogs")
     public ResponseEntity<List<Log>> getLogs()
     {
-        List<Log> logs = LogHandler.getOtherLogs("ernst");
+        List<Log> logs = LogHandler.getLogs("ernst");
         return ResponseEntity.ok(logs);
     }
 }

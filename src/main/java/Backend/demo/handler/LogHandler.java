@@ -12,11 +12,22 @@ public class LogHandler {
         return "login"; //Ändra
     }
 
+    /**
+     * Gets a persons personal logs and returns them as a list
+     * @param currentUser
+     * @return
+     */
     public static ArrayList<Log> getLogs(String currentUser) {
         ArrayList<Log> logs = Log.getLogs(currentUser);
         return logs;
     }
 
+    /**
+     * Gets all other persons logs and removes the current users log from displaying.
+     * Returns a list of logs
+     * @param currentUser
+     * @return
+     */
     public static List<Log> getOtherLogs(String currentUser) {
         ArrayList<Log> temp = Log.getAllLogs();
         ArrayList<Log> withoutUser = removeUsersLogs(temp, currentUser);

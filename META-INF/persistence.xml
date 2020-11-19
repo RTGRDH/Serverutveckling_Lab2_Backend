@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="default">
+        <properties>
+            <property name = "hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"></property>
+            <property name = "hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"></property>
+            <!-- Assume test is the database name -->
+            <property name = "hibernate.connection.url" value="jdbc:mysql://localhost/server_db"></property>
+            <property name = "hibernate.connection.username" value="root"></property>
+            <property name = "hibernate.connection.password" value="Test1234"></property>
+        </properties>
+    </persistence-unit>
 </persistence>
+
