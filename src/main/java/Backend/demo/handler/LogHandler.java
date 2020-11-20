@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogHandler {
-    public static String createLog(String title, String content, String currUser) {
+    public static boolean createLog(String title, String content, String currUser) {
         if(Log.createLog(title, content, currUser)){
-            return "Index";
+            return true;
         }
-        return "login"; //Ändra
+        return false;
     }
 
     /**

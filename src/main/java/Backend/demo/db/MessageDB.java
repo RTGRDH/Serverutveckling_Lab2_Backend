@@ -49,13 +49,13 @@ public class MessageDB {
             User fromUser = new User();
             fromUser.setUsername(result.get(i).getFromUser().getUsername());
             fromUser.setPassword(result.get(i).getFromUser().getPassword());
-            Message temp = new Message(
-                    result.get(i).getId(),
-                    result.get(i).getTitle(),
-                    result.get(i).getContent(),
-                    result.get(i).getSent(),
-                    toUser,
-                    fromUser);
+            Message temp = new Message();
+            temp.setId(result.get(i).getId());
+            temp.setTitle(result.get(i).getTitle());
+            temp.setContent(result.get(i).getContent());
+            temp.setSent(result.get(i).getSent());
+            temp.setToUser(toUser);
+            temp.setFromUser(fromUser);
             r.add(temp);
         }
         return r;

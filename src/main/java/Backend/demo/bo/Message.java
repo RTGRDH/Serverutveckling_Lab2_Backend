@@ -13,13 +13,37 @@ public class Message {
     private User toUser;
     private User fromUser;
 
-    public Message(int _id, String _title, String _content, Timestamp _sent, User _toUser, User _fromUser){
+    /*public Message(int _id, String _title, String _content, Timestamp _sent, User _toUser, User _fromUser){
         id = _id;
         title = _title;
         content = _content;
         sent = _sent;
         toUser = _toUser;
         fromUser = _fromUser;
+    }*/
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setSent(Timestamp sent) {
+        this.sent = sent;
+    }
+
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
+    }
+
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
     }
 
     public static boolean sendMessage(String title, String content, String toUser, String currUser) {

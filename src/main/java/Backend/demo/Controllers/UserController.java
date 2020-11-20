@@ -19,7 +19,7 @@ public class UserController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity login(@RequestBody User user) {
         if(UserHandler.login(user.getUsername(), user.getPassword())){
             return ResponseEntity.ok(HttpStatus.OK);
