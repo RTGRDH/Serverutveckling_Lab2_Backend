@@ -13,7 +13,7 @@ public class MessageController {
     @RequestMapping("/getMessages")
     public ResponseEntity<List<Message>> getMessages()
     {
-        List<Message> msgs = MessageHandler.getMessages("ernst");
+        List<Message> msgs = MessageHandler.getMessages("challehallberg");
         return ResponseEntity.ok(msgs);
     }
 }
