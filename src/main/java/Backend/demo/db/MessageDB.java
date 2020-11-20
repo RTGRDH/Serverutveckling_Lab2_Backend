@@ -43,8 +43,12 @@ public class MessageDB {
     private static ArrayList<Message> entityToClass(ArrayList<MessageEntity> result) {
         ArrayList<Message> r = new ArrayList<>();
         for(int i = 0; i < result.size(); i++){
-            User toUser = new User(result.get(i).getToUser().getUsername(), result.get(i).getToUser().getPassword());
-            User fromUser = new User(result.get(i).getFromUser().getUsername(), result.get(i).getFromUser().getPassword());
+            User toUser = new User();
+            toUser.setUsername(result.get(i).getToUser().getUsername());
+            toUser.setPassword(result.get(i).getFromUser().getPassword());
+            User fromUser = new User();
+            fromUser.setUsername(result.get(i).getFromUser().getUsername());
+            fromUser.setPassword(result.get(i).getFromUser().getPassword());
             Message temp = new Message(
                     result.get(i).getId(),
                     result.get(i).getTitle(),

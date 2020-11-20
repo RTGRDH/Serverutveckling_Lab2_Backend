@@ -2,11 +2,7 @@ package Backend.demo.db;
 
 import Backend.demo.bo.*;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.util.ArrayList;
 
@@ -58,7 +54,9 @@ public class LogDB {
     public static ArrayList<Log> entityToLog(ArrayList<LogEntity> temp){
         ArrayList<Log> result = new ArrayList<>();
         for(int i = 0; i < temp.size(); i++){
-            User u = new User(temp.get(i).getUserId().getUsername(), temp.get(i).getUserId().getPassword());
+            User u = new User();
+            u.setUsername(temp.get(i).getUserId().getUsername());
+            u.setPassword(temp.get(i).getUserId().getPassword());
             Log t = new Log(temp.get(i).getId(), temp.get(i).getTitle(), temp.get(i).getContent(), u);
             result.add(t);
         }

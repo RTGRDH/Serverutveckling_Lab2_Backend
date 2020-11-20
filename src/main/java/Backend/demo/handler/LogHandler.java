@@ -36,7 +36,7 @@ public class LogHandler {
 
     private static ArrayList<Log> removeUsersLogs(ArrayList<Log> temp, String currentUser) {
         for(int i = 0; i < temp.size(); i++){
-            if(temp.get(i).getUser().getName().equals(currentUser)){
+            if(temp.get(i).getUser().getUsername().equals(currentUser)){
                 temp.remove(i);
             }
         }
