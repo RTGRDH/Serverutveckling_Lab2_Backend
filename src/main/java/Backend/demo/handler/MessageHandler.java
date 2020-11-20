@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageHandler {
-    public static String sendMessage(String title, String content, String toUser, String currUser) {
+    public static Boolean sendMessage(String title, String content, String toUser, String currUser) {
         if(Message.sendMessage(title, content, toUser, currUser)){
-            return "Index";
+            return true;
         }
-        return "login";
+        return false;
     }
 
     public static List<Message> getMessages(String currUser) {

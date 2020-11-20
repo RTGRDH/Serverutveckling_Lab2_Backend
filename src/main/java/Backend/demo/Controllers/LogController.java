@@ -2,29 +2,34 @@ package Backend.demo.Controllers;
 import Backend.demo.bo.Log;
 import Backend.demo.handler.LogHandler;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LogController {
-    @GetMapping("/getOtherLogs")
+    @PostMapping("/getOtherUsersLogs")
     public ResponseEntity<List<Log>> getOtherLogs(@RequestParam String currentUser)
     {
         List<Log> otherLogs = LogHandler.getOtherLogs(currentUser);
         return ResponseEntity.ok(otherLogs);
     }
-    @GetMapping("/getLogs")
+    @PostMapping("/getUsersLogs")
     public ResponseEntity<List<Log>> getLogs(@RequestParam String currentUser)
     {
         List<Log> logs = LogHandler.getLogs(currentUser);
         return ResponseEntity.ok(logs);
+    }
+
+    @PostMapping("/createLog")
+    public ResponseEntity createLog(@RequestParam String title,
+                                    @RequestParam String content,
+                                    @RequestParam String currentUser){
+        if(LogHandler.createLog(title, content, currentUser)){
+            return ResponseEntity.ok(HttpStatus.OK);
+        }
+        return ResponseEntity.ok(HttpStatus.NOT_FOUND);
     }
 }
