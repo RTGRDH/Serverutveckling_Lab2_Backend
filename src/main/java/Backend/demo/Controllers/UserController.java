@@ -16,8 +16,8 @@ public class UserController {
         UserHandler.createUser(newUser.getName(), newUser.getPass());
     }
     @GetMapping("/login")
-    public String login(@RequestBody User currentUser)
+    public Boolean login(@RequestBody String username, String password)
     {
-        return UserHandler.login(currentUser.getName(), currentUser.getPass());
+        return UserHandler.login(username, password);
     }
 }
