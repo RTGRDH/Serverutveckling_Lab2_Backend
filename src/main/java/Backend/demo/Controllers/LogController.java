@@ -14,6 +14,7 @@ public class LogController {
     @PostMapping("/getOtherUsersLogs")
     public ResponseEntity<List<Log>> getOtherLogs(@RequestParam String currentUser)
     {
+        System.out.println("Fetching other users logs. Current user is: " + currentUser);
         List<Log> otherLogs = LogHandler.getOtherLogs(currentUser);
         return ResponseEntity.ok(otherLogs);
     }
@@ -21,6 +22,7 @@ public class LogController {
     @PostMapping("/getUsersLogs")
     public ResponseEntity<List<Log>> getLogs(@RequestParam String currentUser)
     {
+        System.out.println("Fetching current user '" + currentUser + "' logs");
         List<Log> logs = LogHandler.getLogs(currentUser);
         return ResponseEntity.ok(logs);
     }
@@ -29,6 +31,9 @@ public class LogController {
     public ResponseEntity createLog(@RequestParam String title,
                                     @RequestParam String content,
                                     @RequestParam String currentUser){
+        System.out.println("Creating a log for current user: " + currentUser);
+        System.out.println("Title: " + title);
+        System.out.println("Content: " + content);
         if(LogHandler.createLog(title, content, currentUser)){
             return ResponseEntity.ok(HttpStatus.OK);
         }

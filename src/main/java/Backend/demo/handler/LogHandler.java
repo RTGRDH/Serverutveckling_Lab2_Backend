@@ -29,9 +29,10 @@ public class LogHandler {
      * @return
      */
     public static List<Log> getOtherLogs(String currentUser) {
-        ArrayList<Log> temp = Log.getAllLogs();
+        return Log.getOtherLogs(currentUser);
+        /*ArrayList<Log> temp = Log.getAllLogs();
         ArrayList<Log> withoutUser = removeUsersLogs(temp, currentUser);
-        return withoutUser;
+        return withoutUser;*/
     }
 
     private static ArrayList<Log> removeUsersLogs(ArrayList<Log> temp, String currentUser) {
@@ -42,20 +43,4 @@ public class LogHandler {
         }
         return temp;
     }
-/*
-    public static ArrayList<LogBean> convertToBean(List<Log> toBeConverted){
-        ArrayList<LogBean> result = new ArrayList<>();
-        for(int i = 0; i < toBeConverted.size(); i++){
-            Log temp = toBeConverted.get(i);
-            LogBean log = new LogBean();
-            log.setId(temp.getId());
-            log.setTitle(temp.getTitle());
-            log.setContent(temp.getContent());
-            log.setUsername(temp.getUser().getName());
-            result.add(log);
-        }
-        return result;
-    }
-
- */
 }

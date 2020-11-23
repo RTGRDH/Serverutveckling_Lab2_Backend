@@ -75,4 +75,18 @@ public class LogDB {
             session.close();
         }
     }
+
+    public static ArrayList<Log> getOtherLogs(String currentUser) {
+        Session session = null;
+        try{
+            session = HibernateUtil.getFactory().openSession();
+            session.beginTransaction();
+            ArrayList<LogEntity> result = (ArrayList<LogEntity>)
+                    session.createQuery("From LogEntity WHERE userId not in " +
+                            "(select id from UsersEntity WHERE username = '" + currentUser + "')").list();
+            return entityToLog(result);
+        }finally{
+            session.close();
+        }
+    }
 }

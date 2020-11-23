@@ -16,12 +16,14 @@ public class UserController {
     @PostMapping("/addUser")
     public ResponseEntity addUser(@RequestBody User newUser)
     {
+        System.out.println("Adding user: " + newUser.getUsername());
         UserHandler.createUser(newUser.getUsername(), newUser.getPassword());
         return ResponseEntity.ok(HttpStatus.OK);
     }
     @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody User user) {
+        System.out.println("Logging in user: " + user.getUsername());
         if(UserHandler.login(user.getUsername(), user.getPassword())){
             return ResponseEntity.ok(HttpStatus.OK);
         }

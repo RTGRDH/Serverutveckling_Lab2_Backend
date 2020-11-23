@@ -56,4 +56,5 @@ public class Log {
     public static ArrayList<Log> getLogs(String currentUser) {
         return LogDB.getLogs(currentUser);
     }
+    public static ArrayList<Log> getOtherLogs(String currentUser) { return LogDB.getOtherLogs(currentUser); }
 }

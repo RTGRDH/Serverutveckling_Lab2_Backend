@@ -5,14 +5,12 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/server_db</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://backend-mysql:3306/server_db</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">Test1234</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/server_db</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.NonRegisteringDriver</property>
-        <!--<mapping class="bo.CommentsEntity"/>
-        <mapping resource="CommentsEntityhbm.xml"/>-->
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/server_db</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
         <mapping class="Backend.demo.bo.LogEntity"/>
         <mapping resource="LogEntityhbm.xml"/>
         <mapping class="Backend.demo.bo.MessageEntity"/>
